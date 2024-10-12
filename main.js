@@ -5,7 +5,7 @@ const controlButtons = document.querySelector(".control-buttons");
 const blocksContainer = document.querySelector(".memory-game-blocks");
 const tries = document.querySelector(".tries span");
 
-let maxWrongTries = 10;
+let maxWrongTries = 5;
 let wrongTriesCount = 0;
 let matchedPairs = 0;
 let yourName = "";
