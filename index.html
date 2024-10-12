@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Test your memory skills with our fun and engaging memory game! Match pairs of cards featuring vibrant images and playful designs to enhance your cognitive abilities. Suitable for all ages, this game offers hours of entertainment while helping to improve concentration and memory. Play solo or challenge your friends for a competitive twist. Start your memory adventure today!" />
+    <title>Memory Game</title>
+    <link rel="icon" href="./assets/images/card-game.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="control-buttons">
+        <button>Start Game</button>
+      </div>
+
+      <div class="info-container">
+        <div class="name">Hello: <span></span></div>
+        <div class="tries">Wrong Tries: <span>0</span></div>
+      </div>
+
+      <div class="memory-game-blocks">
+
+        <div class="game-block" data-technology="angular">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/angular.svg" alt="angular" />
+          </div>
+        </div>
+        <div class="game-block" data-technology="angular">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/angular.svg" alt="angular" />
+          </div>
+        </div>
+
+        <div class="game-block" data-technology="aurelia">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/aurelia.svg" alt="aurelia" />
+          </div>
+        </div>
+        <div class="game-block" data-technology="aurelia">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/aurelia.svg" alt="aurelia" />
+          </div>
+        </div>
+
+        <div class="game-block" data-technology="backbone">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/backbone.svg" alt="backbone" />
+          </div>
+        </div>
+        <div class="game-block" data-technology="backbone">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/backbone.svg" alt="backbone" />
+          </div>
+        </div>
+
+        <div class="game-block" data-technology="ember">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/ember.svg" alt="ember" />
+          </div>
+        </div>
+        <div class="game-block" data-technology="ember">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/ember.svg" alt="ember" />
+          </div>
+        </div>
+
+        <div class="game-block" data-technology="javascript">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/js-badge.svg" alt="javascript badge" />
+          </div>
+        </div>
+        <div class="game-block" data-technology="javascript">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/js-badge.svg" alt="javascript badge" />
+          </div>
+        </div>
+
+        <div class="game-block" data-technology="react">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/react.svg" alt="react" />
+          </div>
+        </div>
+        <div class="game-block" data-technology="react">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/react.svg" alt="react" />
+          </div>
+        </div>
+
+        <div class="game-block" data-technology="vue">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/vue.svg" alt="vue" />
+          </div>
+        </div>
+        <div class="game-block" data-technology="vue">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/vue.svg" alt="vue" />
+          </div>
+        </div>
+
+        <div class="game-block" data-technology="html">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/html.svg" alt="html" />
+          </div>
+        </div>
+        <div class="game-block" data-technology="html">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/html.svg" alt="html" />
+          </div>
+        </div>
+
+        <div class="game-block" data-technology="css">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/css.svg" alt="css" />
+          </div>
+        </div>
+        <div class="game-block" data-technology="css">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/css.svg" alt="css" />
+          </div>
+        </div>
+
+        <div class="game-block" data-technology="github">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/github.svg" alt="github" />
+          </div>
+        </div>
+        <div class="game-block" data-technology="github">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/github.svg" alt="github" />
+          </div>
+        </div>
+
+      </div>
+
+      <audio src="assets/audio/success.mp3" id="success" preload="auto"></audio>
+      <audio src="assets/audio/failed.mp3" id="failed" preload="auto"></audio>
+
+    </div>
+
+    <!-- JavaScript  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./main.js"></script>
+
+  </body>
+</html>
