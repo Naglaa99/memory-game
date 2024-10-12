@@ -31,4 +31,4 @@ This is a simple memory-matching game built using HTML, CSS, and JavaScript. The
 ![preview img](./assets/preview/game-congrats.png)
 
 # Live Demo :
-[]
+[https://naglaa99.github.io/memory-game/]
