@@ -6,7 +6,7 @@ const blocksContainer = document.querySelector(".memory-game-blocks");
 const tries = document.querySelector(".tries span");
 
 let gameState = {
-  maxWrongTries: 50,
+  maxWrongTries: 5,
   wrongTriesCount: 0,
   matchedPairs: 0,
   playerName: "",
