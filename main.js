@@ -5,54 +5,52 @@ const controlButtons = document.querySelector(".control-buttons");
 const blocksContainer = document.querySelector(".memory-game-blocks");
 const tries = document.querySelector(".tries span");
 
-let maxWrongTries = 5;
-let wrongTriesCount = 0;
-let matchedPairs = 0;
-let yourName = "";
-const duration = 1000;
-const blocks = Array.from(blocksContainer.children);
-const totalPairs = blocks.length / 2;
+let gameState = {
+  maxWrongTries: 50,
+  wrongTriesCount: 0,
+  matchedPairs: 0,
+  playerName: "",
+  flipDuration: 1000,
+  blocks: Array.from(blocksContainer.children),
+  totalPairs: 0,
+};
+gameState.totalPairs = gameState.blocks.length / 2;
 
 // Event listener for the start game button click
 startGame.addEventListener("click", () => {
-  yourName = prompt("What's your name?");
-  if (yourName == null || yourName === "") {
+  gameState.playerName = prompt("What's your name?");
+
+  if (!gameState.playerName) {
     playerName.innerHTML = "Unknown";
   } else {
-    playerName.innerHTML = yourName;
+    playerName.innerHTML = gameState.playerName;
   }
 
   controlButtons.remove();
 
   // Flip all blocks initially to show them to the player for 3 seconds
-  blocks.forEach((block) => {
-    block.classList.add("is-flipped");
-  });
+  gameState.blocks.forEach((block) => block.classList.add("is-flipped"));
 
   // After 3 seconds, flip the blocks back
   setTimeout(() => {
-    blocks.forEach((block) => {
-      block.classList.remove("is-flipped");
-    });
+    gameState.blocks.forEach((block) => block.classList.remove("is-flipped"));
   }, 3000);
 });
 
 // Shuffling the order of the blocks
-let orderRange = [...Array(blocks.length).keys()];
+let orderRange = [...Array(gameState.blocks.length).keys()];
 shuffle(orderRange);
 
-blocks.forEach((block, index) => {
+gameState.blocks.forEach((block, index) => {
   block.style.order = orderRange[index];
-  block.addEventListener("click", () => {
-    flipBlock(block);
-  });
+  block.addEventListener("click", () => flipBlock(block));
 });
 
 // Function to handle flipping a block
 function flipBlock(selectBlock) {
   selectBlock.classList.add("is-flipped");
 
-  let allFlippedBlocks = blocks.filter((flippedBlock) =>
+  let allFlippedBlocks = gameState.blocks.filter((flippedBlock) =>
     flippedBlock.classList.contains("is-flipped")
   );
 
@@ -65,9 +63,10 @@ function flipBlock(selectBlock) {
 // Function to temporarily disable clicking on other blocks
 function stopClicking() {
   blocksContainer.classList.add("no-clicking");
-  setTimeout(() => {
-    blocksContainer.classList.remove("no-clicking");
-  }, duration);
+  setTimeout(
+    () => blocksContainer.classList.remove("no-clicking"),
+    gameState.flipDuration
+  );
 }
 
 // Function to check if two flipped blocks match
@@ -80,13 +79,13 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
 
     document.getElementById("success").play();
 
-    matchedPairs++;
+    gameState.matchedPairs++;
 
     // If all pairs are matched, show a congratulations message
-    if (matchedPairs === totalPairs) {
+    if (gameState.matchedPairs === gameState.totalPairs) {
       setTimeout(() => {
         Swal.fire({
-          title: `Congratulations 🎉 <span style="color: #3691ce;">${yourName}</span>!`,
+          title: `Congratulations 🎉 <span style="color: #3691ce;">${gameState.playerName}</span>!`,
           text: "You've matched all the blocks!",
           icon: "success",
           confirmButtonText: "Play Again",
@@ -94,14 +93,14 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
       }, 500);
     }
   } else {
-    wrongTriesCount++;
-    tries.innerHTML = wrongTriesCount;
+    gameState.wrongTriesCount++;
+    tries.innerHTML = gameState.wrongTriesCount;
     setTimeout(() => {
       firstBlock.classList.remove("is-flipped");
       secondBlock.classList.remove("is-flipped");
-    }, duration);
+    }, gameState.flipDuration);
 
-    if (wrongTriesCount >= maxWrongTries) {
+    if (gameState.wrongTriesCount >= gameState.maxWrongTries) {
       setTimeout(() => {
         Swal.fire({
           title: "Game Over!",
